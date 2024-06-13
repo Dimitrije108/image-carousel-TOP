@@ -1,1 +1,90 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+button {
+  all: unset;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  background-color: slategrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-wrapper {
+  padding: 1.5rem;
+  background-color: whitesmoke;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  width: 1000px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.images-container {
+  height: 600px;
+  width: 100%;
+  display: flex;
+  transform: translate(0);
+  transition: all 1s;
+}
+
+.images-container > img {
+  height: 600px;
+  width: 1000px;
+  flex-shrink: 0;
+}
+
+.carousel-quick-nav {
+  margin-top: 0.3rem;
+}
+
+.carousel-quick-nav > button {
+  margin: 0 0.2rem;
+}
+
+.nav-circle {
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  border: 1px solid grey;
+  background-color: rgb(238, 238, 238);
+  border-radius: 20px;
+}
+
+.nav-circle:hover {
+  background-color: rgb(194, 194, 194);
+}
