@@ -69,7 +69,7 @@ button {
 }
 
 .carousel-quick-nav {
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
 }
 
 .carousel-quick-nav > button {
@@ -77,10 +77,10 @@ button {
 }
 
 .nav-circle {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   box-sizing: border-box;
-  border: 1px solid grey;
+  border: 1px solid rgb(31, 31, 31);
   background-color: rgb(238, 238, 238);
   border-radius: 20px;
 }
@@ -90,5 +90,5 @@ button {
 }
 
 .nav-circle.active {
-  background-color: grey;
+  background-color: rgb(63, 63, 63);
 }
