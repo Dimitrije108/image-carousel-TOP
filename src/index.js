@@ -5,4 +5,7 @@ import Model from './Model.js';
 import View from './View.js';
 import Controller from './Controller.js';
 
-const gameList = new Controller(new Model(6, 1000), new View('nav-circle'));
+const myImageCarousel = new Controller(
+  new Model(6, 1000),
+  new View('nav-circle')
+);
