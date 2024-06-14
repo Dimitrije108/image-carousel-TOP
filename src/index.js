@@ -1,54 +1,75 @@
 // eslint-disable-next-line no-unused-vars
 import html from './index.html';
 import './style.css';
+import Model from './Model.js';
+import View from './View.js';
+import Controller from './Controller.js';
 
-class ImageCarousel {
-  constructor(totalImages, imageWidth) {
-    this.carousel = document.querySelector('.images-container');
-    this.totalImages = totalImages;
-    this.currentImage = 1;
-    this.currentSize = 0;
-    this.imageWidth = imageWidth;
-  }
+const gameList = new Controller(new Model(6, 1000), new View('nav-circle'));
 
-  nextImage = () => {
-    if (this.currentImage < this.totalImages) {
-      this.currentImage += 1;
-      this.currentSize += this.imageWidth;
-      this.carousel.style.transform = `translate(-${this.currentSize}px)`;
-    }
-  };
+// class ImageCarousel {
+//   constructor(totalImages, imageWidth, navElementClass) {
+//     this.carousel = document.querySelector('.images-container');
+//     this.totalImages = totalImages;
+//     this.currentImage = 0;
+//     this.currentSize = 0;
+//     this.imageWidth = imageWidth;
+//     this.currentNav = 0;
+//     this.navElements = [...document.querySelectorAll(`.${navElementClass}`)];
+//   }
 
-  previousImage = () => {
-    if (this.currentImage > 1) {
-      this.currentImage -= 1;
-      this.currentSize -= this.imageWidth;
-      this.carousel.style.transform = `translate(-${this.currentSize}px)`;
-    }
-  };
+//   addActiveNavStyle = () => {
+//     this.navElements[this.currentImage].classList.add('active');
+//   };
 
-  // selectImage = () => {
-  //   this.currentImage = clickedImage(cont);
-  // };
-}
+//   deleteActiveNavStyle = () => {
+//     this.navElements[this.currentImage].classList.remove('active');
+//   };
 
-const myImageCarousel = new ImageCarousel(6, 1000);
+//   displayImage = () => {
+//     this.carousel.style.transform = `translate(-${this.currentSize}px)`;
+//   };
 
-const slideRight = document.querySelector('.slide-right');
-const slideLeft = document.querySelector('.slide-left');
+//   nextImage = () => {
+//     if (this.currentImage < this.totalImages - 1) {
+//       this.currentImage += 1;
+//       this.currentSize += this.imageWidth;
+//       this.displayImage();
+//     }
+//   };
 
-slideRight.addEventListener('click', () => {
-  myImageCarousel.nextImage();
-});
+//   previousImage = () => {
+//     if (this.currentImage > 0) {
+//       this.currentImage -= 1;
+//       this.currentSize -= this.imageWidth;
+//       this.displayImage();
+//     }
+//   };
 
-slideLeft.addEventListener('click', () => {
-  myImageCarousel.previousImage();
-});
+//   selectImage = (imgNo) => {
+//     this.currentImage = imgNo;
+//     this.currentSize = this.currentImage * this.imageWidth;
+//     this.displayImage();
+//   };
+// }
 
+// const myImageCarousel = new ImageCarousel(6, 1000, 'nav-circle');
+// // “next” and “previous” will advance to the next or previous slide accordingly
+// const slideRight = document.querySelector('.slide-right');
+// const slideLeft = document.querySelector('.slide-left');
+
+// slideRight.addEventListener('click', () => {
+//   myImageCarousel.nextImage();
+// });
+
+// slideLeft.addEventListener('click', () => {
+//   myImageCarousel.previousImage();
+// });
+// // navigation dots at the bottom of the slides
 // const navButtons = [...document.querySelectorAll('.nav-btn')];
-// navButtons.forEach()
 
-// active picture has the circle-full svg
-// inactive ones have the empty one
-// they're all buttons that on click change the picture position
-// and change the empty circle into full one
+// navButtons.forEach((navBtn) => {
+//   navBtn.addEventListener('click', () => {
+//     myImageCarousel.selectImage(navButtons.indexOf(navBtn));
+//   });
+// });
