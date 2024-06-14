@@ -20,8 +20,8 @@ export default class Model {
     }
   };
 
-  // navImage = (imgNo) => {
-  //   this.currentImage = imgNo;
-  //   this.currentSize = this.currentImage * this.imageWidth;
-  // };
+  navImage = (imgNo) => {
+    this.currentImage = imgNo;
+    this.currentSize = this.currentImage * this.imageWidth;
+  };
 }

@@ -16,25 +16,29 @@ export default class Model {
       this.handlePreviousImage();
     });
 
-    // document.addEventListener('navImage', (e) => {
-    //   this.handleNavImage(e.detail);
-    // });
+    document.addEventListener('navImage', (e) => {
+      this.handleNavImage(e.detail);
+    });
   }
   // Advances the slide to the next image
   handleNextImage = () => {
+    this.View.deleteActiveNavStyle(this.Model.currentImage);
     this.Model.nextImage();
     this.View.displayImage(this.Model.currentSize);
+    this.View.addActiveNavStyle(this.Model.currentImage);
   };
   // Advances the slide to the previous image
   handlePreviousImage = () => {
+    this.View.deleteActiveNavStyle(this.Model.currentImage);
     this.Model.previousImage();
     this.View.displayImage(this.Model.currentSize);
+    this.View.addActiveNavStyle(this.Model.currentImage);
   };
   // Advances the slide to the selected one
-  // handleNavImage = (clickedNav) => {
-  //   this.View.deleteActiveNavStyle(this.Model.currentImage);
-  //   this.Model.navImage(clickedNav);
-  //   this.View.displayImage(this.Model.currentSize);
-  //   this.View.addActiveNavStyle(this.Model.currentImage);
-  // };
+  handleNavImage = (clickedNav) => {
+    this.View.deleteActiveNavStyle(this.Model.currentImage);
+    this.Model.navImage(clickedNav);
+    this.View.displayImage(this.Model.currentSize);
+    this.View.addActiveNavStyle(this.Model.currentImage);
+  };
 }

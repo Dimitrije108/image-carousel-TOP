@@ -17,11 +17,11 @@ export default class View {
     });
     // Assign event listener to all the navigation dots at
     // the bottom of the image slides
-    // this.navElements.forEach((navBtn, index) => {
-    //   navBtn.addEventListener('click', () => {
-    //     this.handleNavBtn(index);
-    //   });
-    // });
+    this.navElements.forEach((navBtn, index) => {
+      navBtn.addEventListener('click', () => {
+        this.handleNavBtn(index);
+      });
+    });
   }
   // Creates a custom event so Controller can listen to it
   handleNextImage = () => {
@@ -35,22 +35,22 @@ export default class View {
   };
   // Create a custom event for navigation dots with correct
   // positioning number
-  // handleNavBtn = (index) => {
-  //   const navBtnEvent = new CustomEvent('navImage', {
-  //     detail: index,
-  //   });
-  //   document.dispatchEvent(navBtnEvent);
-  // };
+  handleNavBtn = (index) => {
+    const navBtnEvent = new CustomEvent('navImage', {
+      detail: index,
+    });
+    document.dispatchEvent(navBtnEvent);
+  };
 
   displayImage = (currentSize) => {
     this.carousel.style.transform = `translate(-${currentSize}px)`;
   };
 
-  // addActiveNavStyle = (currentImage) => {
-  //   this.navElements[currentImage].classList.add('active');
-  // };
+  addActiveNavStyle = (currentImage) => {
+    this.navElements[currentImage].classList.add('active');
+  };
 
-  // deleteActiveNavStyle = (currentImage) => {
-  //   this.navElements[currentImage].classList.remove('active');
-  // };
+  deleteActiveNavStyle = (currentImage) => {
+    this.navElements[currentImage].classList.remove('active');
+  };
 }
