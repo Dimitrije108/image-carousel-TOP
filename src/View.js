@@ -54,7 +54,7 @@ export default class View {
     this.navElements[currentImage].classList.remove('active');
   };
 
-  disableSlideButton = (currentImage, totalImages) => {
+  updateSlideButton = (currentImage, totalImages) => {
     if (currentImage === 0) {
       this.slideLeft.disabled = true;
       this.slideRight.disabled = false;
@@ -65,5 +65,11 @@ export default class View {
       this.slideLeft.disabled = false;
       this.slideRight.disabled = false;
     }
+  };
+
+  updateView = (currentSize, currentImage, totalImages) => {
+    this.displayImage(currentSize);
+    this.addActiveNavStyle(currentImage);
+    this.updateSlideButton(currentImage, totalImages);
   };
 }

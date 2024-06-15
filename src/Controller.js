@@ -19,16 +19,15 @@ export default class Controller {
     document.addEventListener('navImage', (e) => {
       this.handleNavImage(e.detail);
     });
-
+    // Advances the slide every 5 seconds
     this.setSliderInterval = setInterval(this.handleSliderInterval, 5000);
   }
   // Advances the slide to the next image
   handleNextImage = () => {
     this.View.deleteActiveNavStyle(this.Model.currentImage);
     this.Model.nextImage();
-    this.View.displayImage(this.Model.currentSize);
-    this.View.addActiveNavStyle(this.Model.currentImage);
-    this.View.disableSlideButton(
+    this.View.updateView(
+      this.Model.currentSize,
       this.Model.currentImage,
       this.Model.totalImages
     );
@@ -37,9 +36,8 @@ export default class Controller {
   handlePreviousImage = () => {
     this.View.deleteActiveNavStyle(this.Model.currentImage);
     this.Model.previousImage();
-    this.View.displayImage(this.Model.currentSize);
-    this.View.addActiveNavStyle(this.Model.currentImage);
-    this.View.disableSlideButton(
+    this.View.updateView(
+      this.Model.currentSize,
       this.Model.currentImage,
       this.Model.totalImages
     );
@@ -48,20 +46,18 @@ export default class Controller {
   handleNavImage = (clickedNav) => {
     this.View.deleteActiveNavStyle(this.Model.currentImage);
     this.Model.navImage(clickedNav);
-    this.View.displayImage(this.Model.currentSize);
-    this.View.addActiveNavStyle(this.Model.currentImage);
-    this.View.disableSlideButton(
+    this.View.updateView(
+      this.Model.currentSize,
       this.Model.currentImage,
       this.Model.totalImages
     );
   };
-
+  // Advances the slide every 5 seconds
   handleSliderInterval = () => {
     this.View.deleteActiveNavStyle(this.Model.currentImage);
     this.Model.sliderInterval();
-    this.View.displayImage(this.Model.currentSize);
-    this.View.addActiveNavStyle(this.Model.currentImage);
-    this.View.disableSlideButton(
+    this.View.updateView(
+      this.Model.currentSize,
       this.Model.currentImage,
       this.Model.totalImages
     );
