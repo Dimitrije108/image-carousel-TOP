@@ -1,4 +1,4 @@
-export default class Model {
+export default class Controller {
   constructor(Model, View) {
     this.Model = Model;
     this.View = View;
@@ -19,6 +19,8 @@ export default class Model {
     document.addEventListener('navImage', (e) => {
       this.handleNavImage(e.detail);
     });
+
+    this.setSliderInterval = setInterval(this.handleSliderInterval, 5000);
   }
   // Advances the slide to the next image
   handleNextImage = () => {
@@ -46,6 +48,17 @@ export default class Model {
   handleNavImage = (clickedNav) => {
     this.View.deleteActiveNavStyle(this.Model.currentImage);
     this.Model.navImage(clickedNav);
+    this.View.displayImage(this.Model.currentSize);
+    this.View.addActiveNavStyle(this.Model.currentImage);
+    this.View.disableSlideButton(
+      this.Model.currentImage,
+      this.Model.totalImages
+    );
+  };
+
+  handleSliderInterval = () => {
+    this.View.deleteActiveNavStyle(this.Model.currentImage);
+    this.Model.sliderInterval();
     this.View.displayImage(this.Model.currentSize);
     this.View.addActiveNavStyle(this.Model.currentImage);
     this.View.disableSlideButton(

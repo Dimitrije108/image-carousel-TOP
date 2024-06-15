@@ -24,4 +24,13 @@ export default class Model {
     this.currentImage = imgNo;
     this.currentSize = this.currentImage * this.imageWidth;
   };
+
+  sliderInterval = () => {
+    if (this.currentImage === this.totalImages - 1) {
+      this.currentImage = 0;
+      this.currentSize = 0;
+    } else {
+      this.nextImage();
+    }
+  };
 }
