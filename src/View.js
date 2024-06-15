@@ -53,4 +53,17 @@ export default class View {
   deleteActiveNavStyle = (currentImage) => {
     this.navElements[currentImage].classList.remove('active');
   };
+
+  disableSlideButton = (currentImage, totalImages) => {
+    if (currentImage === 0) {
+      this.slideLeft.disabled = true;
+      this.slideRight.disabled = false;
+    } else if (currentImage === totalImages - 1) {
+      this.slideLeft.disabled = false;
+      this.slideRight.disabled = true;
+    } else {
+      this.slideLeft.disabled = false;
+      this.slideRight.disabled = false;
+    }
+  };
 }

@@ -26,6 +26,10 @@ export default class Model {
     this.Model.nextImage();
     this.View.displayImage(this.Model.currentSize);
     this.View.addActiveNavStyle(this.Model.currentImage);
+    this.View.disableSlideButton(
+      this.Model.currentImage,
+      this.Model.totalImages
+    );
   };
   // Advances the slide to the previous image
   handlePreviousImage = () => {
@@ -33,6 +37,10 @@ export default class Model {
     this.Model.previousImage();
     this.View.displayImage(this.Model.currentSize);
     this.View.addActiveNavStyle(this.Model.currentImage);
+    this.View.disableSlideButton(
+      this.Model.currentImage,
+      this.Model.totalImages
+    );
   };
   // Advances the slide to the selected one
   handleNavImage = (clickedNav) => {
@@ -40,5 +48,9 @@ export default class Model {
     this.Model.navImage(clickedNav);
     this.View.displayImage(this.Model.currentSize);
     this.View.addActiveNavStyle(this.Model.currentImage);
+    this.View.disableSlideButton(
+      this.Model.currentImage,
+      this.Model.totalImages
+    );
   };
 }
