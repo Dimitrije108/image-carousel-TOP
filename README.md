@@ -2,7 +2,7 @@
 
 An image carousel implementation as part of The Odin Project curriculum.
 
-### <a href="https://dimitrije108.github.io/dropdown-menu-TOP/">LIVE VERSION</a>
+### <a href="https://dimitrije108.github.io/image-carousel-TOP/">LIVE VERSION</a>
 
 Features:
 
